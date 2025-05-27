@@ -27,7 +27,7 @@ public class TransactionService {
         OffsetDateTime now = OffsetDateTime.now(); //nao precisa do new, pois OffsetDateTime.now() já cria uma nova instância com o horário atual
         //Obtém estatísticas de resumo para transações nos últimos 60 segundos
         return transactions.stream()
-                .filter(t -> t.getDataHora().isAfter(now.minusSeconds(60))) //Filtra transações que ocorreram nos últimos 60 segundos
+                //.filter(t -> t.getDataHora().isAfter(now.minusSeconds(60))) //Filtra transações que ocorreram nos últimos 60 segundos
                 .mapToDouble(Transaction::getValor) //Mapeia as transações para seus valores
                 .summaryStatistics(); //Obtém estatísticas de resumo (contagem, soma, média, mínimo, máximo)
     }
